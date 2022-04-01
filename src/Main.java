@@ -1,7 +1,4 @@
-import br.com.dio.desafio.dominio.Bootcamp;
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Dev;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
 
@@ -22,10 +19,6 @@ public class Main {
         mentoria.setDescricao("descrição mentoria java");
         mentoria.setData(LocalDate.now());
 
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
-
         Bootcamp bootcamp = new Bootcamp();
         bootcamp.setNome("Bootcamp Java Developer");
         bootcamp.setDescricao("Descrição Bootcamp Java Developer");
@@ -33,16 +26,28 @@ public class Main {
         bootcamp.getConteudos().add(curso2);
         bootcamp.getConteudos().add(mentoria);
 
-        Dev devCamila = new Dev();
-        devCamila.setNome("Camila");
-        devCamila.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
-        devCamila.progredir();
-        devCamila.progredir();
+        Dev devYuri = new Dev();
+        devYuri.setNome("Yuri");
+        devYuri.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Yuri:" + devYuri.getConteudosInscritos());
+        devYuri.progredir();
+        devYuri.progredir();
         System.out.println("-");
-        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
-        System.out.println("Conteúdos Concluídos Camila:" + devCamila.getConteudosConcluidos());
-        System.out.println("XP:" + devCamila.calcularTotalXp());
+        System.out.println("Conteúdos Inscritos Yuri:" + devYuri.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos Yuri:" + devYuri.getConteudosConcluidos());
+        System.out.println("XP:" + devYuri.calcularTotalXp());
+        System.out.println("-");
+        devYuri.publicarArtigo("Titulo 1", "Conteúdo 1");
+        devYuri.publicarArtigo("Titulo 2", "Conteúdo 2");
+        devYuri.publicarArtigo("Titulo 3", "Conteúdo 3");
+        System.out.println("Conteúdo do(s) Artigo(s): " + devYuri.getArtigos());
+        System.out.println("-");
+        devYuri.setCurriculo(new Curriculo("Yuri Moreira", "7199999-9999", "yuri.moreira@gmail.com", 3000d));
+        devYuri.setFormacao(new FormacaoAcademica("Universidade ABC", "Bacharelado", "Administração", LocalDate.of(2015,8,1), LocalDate.of(2019,12,31)));
+        devYuri.setExperiencia(new ExperienciaProfissional("Grupo GFT", "QA Jr.", "Teste de software", LocalDate.of(2022,4,1)));
+        System.out.println("Currículo" + "\n" + devYuri.getCurriculo());
+        System.out.println("Formação Acadêmica" + "\n" + devYuri.getFormacao());
+        System.out.println("Experiência Profissional" + "\n" + devYuri.getExperiencia());
 
         System.out.println("-------");
 
@@ -50,6 +55,7 @@ public class Main {
         devJoao.setNome("Joao");
         devJoao.inscreverBootcamp(bootcamp);
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
+        devJoao.progredir();
         devJoao.progredir();
         devJoao.progredir();
         devJoao.progredir();

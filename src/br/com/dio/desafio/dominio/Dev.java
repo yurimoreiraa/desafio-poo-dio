@@ -6,6 +6,11 @@ public class Dev {
     private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
+    private List<Artigo> artigos = new ArrayList<>();
+    private Curriculo curriculo = new Curriculo();
+    private FormacaoAcademica formacao = new FormacaoAcademica();
+    private ExperienciaProfissional experiencia = new ExperienciaProfissional();
+
 
     public void inscreverBootcamp(Bootcamp bootcamp){
         this.conteudosInscritos.addAll(bootcamp.getConteudos());
@@ -30,13 +35,32 @@ public class Dev {
             soma += next;
         }
         return soma;
-
-        /*return this.conteudosConcluidos
-                .stream()
-                .mapToDouble(Conteudo::calcularXp)
-                .sum();*/
     }
 
+    public void publicarArtigo (String titulo, String conteudo) {
+        Artigo artigo = new Artigo();
+        artigo.setTitulo(titulo);
+        artigo.setConteudo(conteudo);
+        artigos.add(0,artigo);
+    }
+    public void setCurriculo(Curriculo curriculo) {
+        this.curriculo = curriculo;
+    }
+    public Curriculo getCurriculo () {
+        return curriculo;
+    }
+    public void setFormacao(FormacaoAcademica formacao) {
+        this.formacao = formacao;
+    }
+    public FormacaoAcademica getFormacao () {
+        return formacao;
+    }
+    public void setExperiencia (ExperienciaProfissional experiencia) {
+        this.experiencia = experiencia;
+    }
+    public ExperienciaProfissional getExperiencia () {
+        return experiencia;
+    }
 
     public String getNome() {
         return nome;
@@ -52,6 +76,14 @@ public class Dev {
 
     public void setConteudosInscritos(Set<Conteudo> conteudosInscritos) {
         this.conteudosInscritos = conteudosInscritos;
+    }
+
+    public List<Artigo> getArtigos() {
+        return artigos;
+    }
+
+    public void setArtigos(List<Artigo> artigos) {
+        this.artigos = artigos;
     }
 
     public Set<Conteudo> getConteudosConcluidos() {
